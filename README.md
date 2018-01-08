@@ -1,2 +1,4 @@
-# halfstack_2017
-GraphQL data visualisations demo
+# NDC London 2018 - Building real-time API's with GraphQL
+
+GraphQL is a query language for application and not your database. A client can declaratively describe the data that it wants (queries), and the GraphQL server will return only the data asked for in a predictable shape. GraphQL also provides a mechanism for clients to subscribe to real-time updates in the form of Subscriptions.
+In this talk, we’ll start with an introduction to both GraphQL and GraphQL Subscriptions. Then we will build a GraphQL server demonstrating how to define a schema, fetch/manipulate data and implement GraphQL Subscriptions. Lessons learned will be shared from designing, developing and operating GraphQL based API’s over the past 9 months.
