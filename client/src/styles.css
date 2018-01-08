@@ -1,0 +1,350 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    background-color: #eef3f5;
+    color: black;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.0em;
+}
+
+input[type="text"]::-webkit-input-placeholder {
+    font-size: 1.2em;
+    color: lightgray;
+}
+
+.page {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.page header {
+    flex: 1 0 auto;
+    background-color: white;
+    padding: 1.25em 1em;
+    align-self: stretch;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.page-content {
+    flex: 9 0 auto;
+    padding: 1em;
+    width: 70%;
+}
+
+.form-search {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+
+.form-search>.form-search-textbox {
+    flex: 0 0 20%;
+    padding: 1.5em 0.5em;
+}
+
+.form-search>.form-btn {
+    flex: 0 0 10%;
+    border-radius: 0px;
+    border: none;
+    color: white;
+    background-color: #4f8bec;
+}
+
+.panel>.panel-header {
+    background-color: white;
+    border-radius: 2px;
+    padding: 1em;
+    text-transform: uppercase;
+    border-bottom: solid 1px #eeeeee;
+    color:#E10098;
+}
+
+.patient-list {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.patient-list-item {
+    background-color: #4bcb9a;
+    border: 1px solid #45b78c;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.8em;
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 1em;
+}
+
+.patient-list-item:last-child {
+    margin-bottom: 0;
+}
+
+.patient-info,
+.patient-ward {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.patient-list-item>.patient-icon {
+    flex: 0 0 9%;
+    text-align: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.patient-list-item>.patient-icon>img {
+    width: 60px;
+    height: 60px;
+}
+
+.patient-list-item>.patient-info {
+    flex: 0 0 40%;
+    justify-content: space-between;
+    padding: 0.25em 0 0.25em 0;
+}
+
+.patient-info>div {
+    margin-bottom: 0.25em;
+}
+
+.patient-list-item>.patient-ward {
+    flex: 0 0 41%;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding:  0 0.25em 0.25em 0;
+}
+
+.patient-list-item>.patient-summary-link {
+    background-color: #45b78c;
+    flex: 0 0 9.6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.patient-list-item>.patient-summary-link>a>img {
+    height: 60px;
+    width: 70px;
+}
+
+.patient-name {
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.patient-attribute {
+    margin-bottom: 0.25em;
+}
+
+.patient-attribute>.label {
+    color: #ebebeb;
+}
+
+.table-medication {
+    width: 100%;
+}
+
+.table-medication thead {
+    color: lightgray;
+}
+
+.table-medication td {
+    padding: 0.5em;
+}
+
+.col-drug-name {
+    width: 40%;
+}
+
+.col-dose {
+    width: 40%;
+}
+
+.col-prescribed-on {
+    width: 20%;
+}
+
+.grey-row {
+    background-color: #eeeeee;
+}
+
+.panel {
+    background-color: white;
+    margin-bottom: 1em;
+}
+
+.panel-content {
+    padding: 0.5em;
+}
+
+.patient-panel-content {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.patient-panel-content>.patient-icon {
+    flex: 0 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.patient-panel-content>.patient-details {
+    flex: 0 0 90%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+.img-gender {
+    width: 50px; height: 50px;
+}
+.patient-details > p {
+    flex: 1 0 30%;
+}
+
+.patient-panel-content .label {
+    color: gray;
+}
+
+.patient-panel-content .value {}

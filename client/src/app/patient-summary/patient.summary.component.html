@@ -1,0 +1,36 @@
+<div class="page search-page">
+    <header class="page-header">
+        <h1>Patient Summary</h1>
+    </header>
+    <div class="page-content">
+        <p *ngIf="!patient">
+            <em>Patient not found.</em>
+        </p>
+        <div class="panel" *ngIf="patient">
+            <div class="panel-header">
+                <h2>Patient info</h2>
+            </div>
+            <div class="panel-content patient-panel-content">
+                <div class="patient-icon">
+                    <img class="img-gender" alt="patient icon" *ngIf="patient.gender === 'MALE'" src="../../assets/male-icon.png" />
+                    <img class="img-gender" alt="patient icon" *ngIf="patient.gender === 'FEMALE'" src="../../assets/female-icon.png" />
+                </div>
+                <div class="patient-details">
+                    <p>
+                        <span class="label">Name: </span>
+                        <span class="value">{{patient.firstName}} {{patient.surname}}</span>
+                    </p>
+                    <p>
+                        <span class="label">NHS: </span>
+                        <span class="value">{{patient.identifier}}</span>
+                    </p>
+                    <p>
+                        <span class="label">DOB: </span>
+                        <span class="value">{{patient.birthDate}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <patient-medications *ngIf="patient" [medications]="patient.medications"></patient-medications>
+        <patient-encounters *ngIf="patient" [encounter]="patient.admission"></patient-encounters>
+    </div>

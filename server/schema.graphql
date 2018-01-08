@@ -1,0 +1,76 @@
+# A type that describes a patient.
+type Patient  {
+	patientId:Int!
+	firstName:String!
+	surname:String!
+	birthDate:String
+	identifier:String!
+	gender:Gender
+	medications(limit:Int!):[Medication]
+	admission: Admission
+}
+
+type Admission {
+	encounterId:Int!
+	consultant:String
+	date:String!
+}
+
+type Medication {
+	drugName:String!
+	dose:String!
+	prescribedOn: String!
+}
+
+type Ward {
+	wardId:Int!
+	name:String!
+	code:String!
+	patients:[Patient]
+}
+
+type PatientDischargedEvent {
+	encounterId:Int!
+	patientId: Int!
+}
+
+enum Gender {
+	MALE
+	FEMALE
+	NOTSPECIFICED
+}
+
+input DischargePatientInput {
+	encounterId:Int!
+	patientId:Int!
+	wardId:Int!
+	wardCode: String!
+	consultant:String!
+	dischargeDate: String!
+}
+
+type DischargePatientPayload {
+	encounterId:Int!
+	patientId:Int!
+	wardCode:String!
+	dischargeDate: String!
+}
+
+type Query {
+	patient(identifier: String!):Patient
+	ward(code:String!):Ward
+}
+
+type Mutation {
+	dischargePatient(input:DischargePatientInput!):DischargePatientPayload
+}
+
+type Subscription {
+	patientDischarged(wardCode:String!):PatientDischargedEvent
+}
+
+schema {
+	query:Query
+	mutation:Mutation
+	subscription:Subscription
+} 
