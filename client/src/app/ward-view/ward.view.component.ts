@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Apollo } from 'apollo-angular';
-import { WARD_QUERY, PATIENT_DISCHARGE_SUB } from '../queries';
+import { WARD_QUERY } from '../queries';
 import { Ward, Patient } from '../types';
 
 @Component({
@@ -32,30 +32,6 @@ export class WardViewComponent implements OnInit {
           this.patients = data.ward.patients;
         });
       });
-
-      this.setupSubscriptions();
     });
-  }
-
-  setupSubscriptions(): any {
-    this.query
-      .subscribeToMore({
-        document: PATIENT_DISCHARGE_SUB,
-        variables: { wardCode: this.id },
-        updateQuery: (previous: any, { subscriptionData }) => {
-          if (!subscriptionData) {
-            return;
-          }
-
-          const dichargedPatientId = subscriptionData.data.patientDischarged.patientId;
-          const filteredPatients = previous.ward.patients.filter(p => p.patientId !== dichargedPatientId);
-
-          return Object.assign({}, previous, {
-            ward: {
-              patients: filteredPatients
-            }
-          });
-        }
-      });
   }
 }
