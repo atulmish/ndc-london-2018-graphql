@@ -1,0 +1,44 @@
+# A type that describes a patient.
+type Patient  {
+	patientId:Int!
+	firstName:String!
+	surname:String!
+	birthDate:String
+	identifier:String!
+	gender:Gender
+	medications(limit:Int!):[Medication]
+	admission: Admission
+}
+
+type Admission {
+	encounterId:Int!
+	consultant:String
+	date:String!
+}
+
+type Medication {
+	drugName:String!
+	dose:String!
+	prescribedOn: String!
+}
+
+type Ward {
+	wardId:Int!
+	name:String!
+	code:String!
+	patients:[Patient]
+}
+
+enum Gender {
+	MALE
+	FEMALE
+}
+
+type Query {
+	patient(identifier: String!):Patient
+	ward(code:String!):Ward
+}
+
+schema {
+	query:Query
+} 
